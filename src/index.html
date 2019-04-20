@@ -1,0 +1,57 @@
+<!-- Madeleine Nicolas, mpn272 -->
+
+<html>
+    <head>
+		<link rel="stylesheet" href="style.css">
+		<script src="https://d3js.org/d3.v5.js"></script>
+		<script src="aiddata-processing.js"></script>
+	</head>
+
+    <body>
+		<h1 class="title">InfoVis: Mini-Project 2</h1>
+		<h1 class="author">by Maddie Nicolas</h1>
+		<div class="sidebar">
+			<h2>Info about the AidData dataset</h2>
+			<p>The AidData dataset contains information about aid donations between two countries.<br/><br/>Each row represents one transaction between two countries with the following attributes:
+				<ul>
+					<li><b>Year:</b> year of the commitment</li>
+					<li><b>Donor</b> country providing the financial resource</li>
+					<li><b>Recipient:</b> country or organization receiving the money</li>
+					<li><b>Commitment Amount USD:</b> the total amount of financial resources provided</li>
+					<li><b>Coalesced Purpose Name:</b> the purpose of the transaction</li>
+				</ul>
+			</p>
+		</div>
+		<div class="vis">
+			<h2>Visualization 1</h2>
+            <p>
+                <ul>
+                    <li>How does the amount donated vs. amount received change over time across all countries?</li>
+                    <li>Are there countries that mostly send or mostly receive and countries that have a similar amount of donations they receive and send?</li>
+                    <li>Are there countries that change their role over time? That is, they used to mostly send donations and turn into mostly receiving donations and vice-versa?</li>
+                    <li>Are there countries in which you can find a sudden increase ("peak") or a sudden decrease ("valley")?</li>
+                </ul>
+            </p>
+            <svg id="Vis1Chart"></svg>
+		</div>
+		<div class="vis">
+            <h2>Visualization 2</h2>
+            <ul>
+                <li>What are the top 10 purposes of disbursements (in terms of total volume) and how does their volume compare over time?</li>
+                <li>Are there types that have a much higher/lower volume overall among the top 10?</li>
+                <li>Are there types that increase or decrease their volume over time or that have sudden peaks or valleys?</li>
+            </ul>
+			<svg id="Vis2Chart"></svg>
+		</div>
+		<div class="vis">
+			<h2>Visualization 3</h2>
+			<p>Focusing on a country that has a history of sending amounts to many other countries (pick one):</p>
+            <ul>
+                <li>How does the set of countries it sends donations to change over time?</li>
+                <li>Are there countries that receive higher amounts in specific time periods?</li>
+            </ul>
+            <svg id="Vis3Chart"></svg>
+		</div>
+	</body>
+
+</html>
