@@ -45,6 +45,10 @@ h1 {
 	width: 70%;
 }
 
+.vis text {
+	font-size: 12px;
+}
+
 li {
 	padding: 5px 0 5px 0;
 }
@@ -60,4 +64,23 @@ h2 {
 
 .vis ul {
     width: 65%;
+}
+
+.axis-bottom line {
+	stroke: #666666;
+}
+
+.axis-bottom path {
+	stroke: #ffffff;
+}
+
+.axis-left path, .axis-left line {
+	stroke: #c6c6c6;
+}
+
+.legend {
+	color: #000000;
+	font-size: 12px;
+	z-index: 1;
+	position: absolute;
 }

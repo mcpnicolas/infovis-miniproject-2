@@ -76,6 +76,44 @@ function groupByPurpose(data) {
   return result
 }
 
+function groupByYearlyPercentages(purposes) {
+	yearlyTotal = {} // total donated from top 10 purposes
+	years = []
+	for (i = 1973; i < 2014; i++) {
+		let currentSum = 0
+		for (p in purposes) {
+			if (purposes[p].YearlyDonations[i]) {
+				currentSum += purposes[p].YearlyDonations[i].Amount
+			}
+		}
+		yearlyTotal[i] =
+		{
+			"TotalFromTop10":currentSum
+		}
+	}
+	//console.log(yearlyTotal)
+	purposes.forEach(function(purpose) {
+		for (y in purpose.YearlyDonations) {
+			purpose.YearlyDonations[y].Amount = purpose.YearlyDonations[y].Amount/yearlyTotal[y].TotalFromTop10
+		}
+	})
+	for (i = 1973; i < 2014; i++) {
+		let year = {
+			"year":i
+		}
+		for (p in purposes) {
+			if (purposes[p].YearlyDonations[i]) {
+				year[purposes[p].Purpose] = purposes[p].YearlyDonations[i].Amount
+			} else {
+				year[purposes[p].Purpose] = 0
+			}
+		}
+		years.push(year)
+	}
+	//console.log(years)
+	return years
+}
+
 function groupByJapanRecipients(data) {
 	let result = data.reduce((result, d) => {
 		let currentCountry = result[d.recipient] || {
