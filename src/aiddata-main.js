@@ -16,6 +16,7 @@ function processData() {
 	let config3 = getVis3ChartConfig()
 
 	drawVis2Chart(yearlyPurposesPercent, config2)
+	drawVis3Chart(japanRecipients,config3)
 }
 
 loadData().then(processData);

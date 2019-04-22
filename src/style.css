@@ -78,9 +78,13 @@ h2 {
 	stroke: #c6c6c6;
 }
 
+#Vis3Chart .axis-left path, .axis-top path, .axis-top line {
+	stroke: transparent;
+}
+
 .legend {
 	color: #000000;
-	font-size: 12px;
+	font-size: 10px;
 	z-index: 1;
 	position: absolute;
 }

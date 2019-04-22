@@ -41,12 +41,12 @@ function getVis2ChartConfig() {
 }
 
 function getVis3ChartConfig() {
-	let width = 730;
-	let height = 500;
+	let width = 810;
+	let height = 550;
 	let margin = {
-		top: 10,
+		top: 110,
 		bottom: 20,
-		left: 110,
+		left: 130,
 		right: 10
 	}
 	let bodyHeight = height - margin.top - margin.bottom

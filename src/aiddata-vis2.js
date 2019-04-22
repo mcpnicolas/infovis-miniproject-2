@@ -159,7 +159,7 @@ function drawVis2Chart(purposes, config) {
 		.offset(d3.stackOffsetNone)
 
 	let yearSeries = stack(purposes)
-	console.log(yearSeries)
+	//console.log(yearSeries)
 
 	let area = d3.area()
 		//.x(function(d) { return xScale(d.data.year); })
