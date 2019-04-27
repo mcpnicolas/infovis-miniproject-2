@@ -46,6 +46,20 @@ function groupByCountryArray(data) {
 	result.sort((a, b) => {
 		return d3.ascending(a.Country, b.Country) // sorting by country name
 	})
+
+	// clean up years
+	for (c in result) {
+		for (i = 1973; i < 2014; i++) {
+			if (!result[c].YearlyNetAmounts[i]) {
+				result[c].YearlyNetAmounts[i] = {
+					"Year": i.toString(),
+					"Amount": 0
+				}
+			}
+		}
+		result[c].YearlyNetAmounts = Object.keys(result[c].YearlyNetAmounts).map(key => result[c].YearlyNetAmounts[key])
+	}
+
   	return result
 }
 

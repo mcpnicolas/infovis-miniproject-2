@@ -109,8 +109,8 @@ function drawVis3Chart(recipients, config) {
         if (thisMin < min) min = thisMin
         if (thisMax > max) max = thisMax
     }
-    console.log(min)
-    console.log(max)
+    //console.log(min)
+    //console.log(max)
 
     let colorScale = d3.scaleThreshold()
         .domain([1000000,10000000,100000000,1000000000]) // $1M, $10M, $100M, $1B 
@@ -167,7 +167,7 @@ function drawVis3Chart(recipients, config) {
         .attr("width", x.bandwidth())
         .attr("height", y.bandwidth())
         .style("stroke","#ffffff")
-        .style("stroke-width", 1)
+        .style("stroke-width", 0.1)
         .style("fill",function(d) { return d })
 
     drawAxesVis3Chart(xScale, yScale, config)
