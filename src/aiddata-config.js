@@ -4,7 +4,7 @@ function getVis1ChartConfig() {
 	let margin = {
 		top: 10,
 		bottom: 50,
-		left: 110,
+		left: 120,
 		right: 10
 	}
 	let bodyHeight = height - margin.top - margin.bottom

@@ -44,7 +44,15 @@ function groupByCountryArray(data) {
 	// Convert to array
 	result = Object.keys(result).map(key => result[key])
 	result.sort((a, b) => {
-		return d3.ascending(a.Country, b.Country) // sorting by country name
+		let totalCountryNetA = Object.keys(a.YearlyNetAmounts).reduce(function (previous, key) {
+			return previous + a.YearlyNetAmounts[key].Amount;
+		}, 0)
+
+		let totalCountryNetB = Object.keys(b.YearlyNetAmounts).reduce(function (previous, key) {
+			return previous + b.YearlyNetAmounts[key].Amount;
+		}, 0)
+
+		return d3.ascending(totalCountryNetA, totalCountryNetB) // sorting by country name
 	})
 
 	// clean up years

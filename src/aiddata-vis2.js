@@ -128,7 +128,7 @@ function drawVis2Chart(purposes, config) {
 	let yScale = d3.scaleLinear()
 		.range([bodyHeight,0])
 
-	let xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")).ticks(10).tickSize(-(height-margin.bottom-margin.top+5))
+	let xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y")).ticks(10).tickSize(-(height-margin.bottom-margin.top))
 	container.append("g")
 		.style("transform", `translate(${margin.left}px,${margin.top+bodyHeight+5}px)`)
 		.call(xAxis)
