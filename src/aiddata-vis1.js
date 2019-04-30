@@ -28,15 +28,15 @@ function drawLegendVis1Chart(config, minNet, maxNet) {
 
 	linearGradient.append("stop")
 		.attr("offset", "0%")
-		.attr("stop-color", "#C76E53")
+		.attr("stop-color", "#d73027")
 
 	linearGradient.append("stop")
 		.attr("offset", "50%")
-		.attr("stop-color", "#ffffff")
+		.attr("stop-color", "#ffffbf")
 
 	linearGradient.append("stop")
 		.attr("offset", "100%")
-		.attr("stop-color", "#737E16")
+		.attr("stop-color", "#1a9850")
 	
 	legend.append("text")
 		.attr("x", xLegend+5)
@@ -77,7 +77,7 @@ function drawVis1Chart(countries, config) {
   
   let colorScale = d3.scaleSqrt()
 		.domain([-overlap,0,overlap])
-		.range(["#C76E53","#ffffff","#737E16"])
+		.range(["#d73027","#ffffbf","#1a9850"])
 		.interpolate(d3.interpolateHcl)
 
   let xScale = d3.scaleTime()

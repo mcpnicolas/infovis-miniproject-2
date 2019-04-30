@@ -114,7 +114,8 @@ function drawVis3Chart(recipients, config) {
 
     let colorScale = d3.scaleThreshold()
         .domain([1000000,10000000,100000000,1000000000]) // $1M, $10M, $100M, $1B 
-        .range(["#D7D986","#B5BD64","#95A246","#77872B","#5B6C14"])
+        //.range(["#D7D986","#B5BD64","#95A246","#77872B","#5B6C14"])
+        .range(['#d9ef8b','#a6d96a','#66bd63','#1a9850','#006837'])
     
     let rows = recipients.length
     let cols = 41

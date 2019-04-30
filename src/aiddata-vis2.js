@@ -142,7 +142,9 @@ function drawVis2Chart(purposes, config) {
 
 	let colorScale = d3.scaleOrdinal()
 		.domain([new Array(10).keys()])
-		.range(["#F08C66","#763D39","#7D4658","#715875","#546C87","#327E86","#368C73","#609458","#929743","#C69346"])
+		//.range(["#F08C66","#763D39","#7D4658","#715875","#546C87","#327E86","#368C73","#609458","#929743","#C69346"])
+		//.range(['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a'])
+		.range(['#cab2d6','#ff7f00','#fdbf6f','#e31a1c','#fb9a99','#a6d96a','#1a9850','#1f78b4','#a6cee3','#6a3d9a'])
 
 	let stack = d3.stack()
 		.keys(["Air transport",
