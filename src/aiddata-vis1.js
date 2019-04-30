@@ -1,22 +1,79 @@
+function drawLegendVis1Chart(config, minNet, maxNet) {
+  let {container, margin, height, width} = config;
+	let xLegend = width - 225;
+	let yLegend = 0;
+
+	let legend = container.append("g")
+		.attr("class", "legend")
+		
+	legend.append("rect")
+		.attr("x", xLegend+5)
+		.attr("y", yLegend+20)
+		.attr("height", 15)
+		.attr("width", 210)
+		.style("fill", "url(#linear-gradient)")
+
+	legend.append("text")
+		.attr("x", xLegend)
+		.attr("y", yLegend+12)
+		.text("Yearly Net Amount (Received - Donated)")
+	
+	var defs = legend.append("defs")
+	var linearGradient = defs.append("linearGradient")
+		.attr("id", "linear-gradient")
+		.attr("x1", "0%")
+		.attr("y1", "0%")
+		.attr("x2", "100%")
+		.attr("y2", "0%");
+
+	linearGradient.append("stop")
+		.attr("offset", "0%")
+		.attr("stop-color", "#C76E53")
+
+	linearGradient.append("stop")
+		.attr("offset", "50%")
+		.attr("stop-color", "#ffffff")
+
+	linearGradient.append("stop")
+		.attr("offset", "100%")
+		.attr("stop-color", "#737E16")
+	
+	legend.append("text")
+		.attr("x", xLegend+5)
+		.attr("y", yLegend+50)
+		.text("$" + (minNet/1000000000).toString().substring(0,3) + "B")
+
+	legend.append("text")
+		.attr("x", xLegend+195)
+		.attr("y", yLegend+50)
+		.text("$" + (maxNet/1000000000).toString().substring(0,1) + "B")
+  
+}
+
 function drawVis1Chart(countries, config) {
   let { margin, bodyWidth, bodyHeight, width, height, container } = config
   let step = bodyHeight/countries.length
-  let overlap = 7
+  let overlap = 8
 
+  let min = Number.MAX_SAFE_INTEGER
   let max = Number.MIN_SAFE_INTEGER
   for (c in countries) {
     for (y in countries[c].YearlyNetAmounts) {
-      if (Math.abs(countries[c].YearlyNetAmounts[y].Amount)>max) {
-        max = Math.abs(countries[c].YearlyNetAmounts[y].Amount)
+      if (countries[c].YearlyNetAmounts[y].Amount>max) {
+        max = countries[c].YearlyNetAmounts[y].Amount
+      }
+      if (countries[c].YearlyNetAmounts[y].Amount<min) {
+        min = countries[c].YearlyNetAmounts[y].Amount
       }
     }
   }
-  //console.log(max)
+  console.log(min)
+  console.log(max)
 
   countryYears = countries.map(function(c) {
     return c.YearlyNetAmounts
   })
-  console.log(countryYears)
+  //console.log(countryYears)
   
   let colorScale = d3.scaleSqrt()
 		.domain([-overlap,0,overlap])
@@ -47,7 +104,7 @@ function drawVis1Chart(countries, config) {
     .data(countryYears)
     .enter()
     .append("g")
-    .attr("transform", (d, i) => `translate(0,${i * (step) + margin.top})`)
+    .attr("transform", (d, i) => `translate(0,${i * (step) + 10})`)
 
   country.append("clipPath")
     .attr("id",(d, i) => "horizon_clip_" + i.toString()) // horizon_clip_0
@@ -89,5 +146,5 @@ function drawVis1Chart(countries, config) {
 		.call(yAxis)
 		.attr("class", "axis-left")
 
-
+  drawLegendVis1Chart(config, min, max)
 }

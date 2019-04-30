@@ -2,7 +2,7 @@ function getVis1ChartConfig() {
 	let width = 825;
 	let height = 700;
 	let margin = {
-		top: 10,
+		top: 60,
 		bottom: 50,
 		left: 120,
 		right: 10
